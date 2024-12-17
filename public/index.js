@@ -3,8 +3,8 @@ import Ground from './Ground.js';
 import CactiController from './CactiController.js';
 import Score from './Score.js';
 import ItemController from './ItemController.js';
-import './Socket.js';
-import { sendEvent } from './Socket.js';
+import '/Socket.js';
+import { sendEvent } from '/Socket.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
@@ -30,7 +30,7 @@ const GROUND_SPEED = 0.5;
 
 // 선인장
 const CACTI_CONFIG = [
-  { width: 48 / 1.5, height: 100 / 1.5, image: 'images/cactus_1.png' },
+  { width: 65 / 1.5, height: 100 / 1.5, image: 'images/hoyoung_1.png' },
   { width: 98 / 1.5, height: 100 / 1.5, image: 'images/cactus_2.png' },
   { width: 68 / 1.5, height: 70 / 1.5, image: 'images/cactus_3.png' },
 ];
@@ -41,6 +41,8 @@ const ITEM_CONFIG = [
   { width: 50 / 1.5, height: 50 / 1.5, id: 2, image: 'images/items/pokeball_yellow.png' },
   { width: 50 / 1.5, height: 50 / 1.5, id: 3, image: 'images/items/pokeball_purple.png' },
   { width: 50 / 1.5, height: 50 / 1.5, id: 4, image: 'images/items/pokeball_cyan.png' },
+  { width: 50 / 1.5, height: 50 / 1.5, id: 3, image: 'images/items/pokeball_pink.png' },
+  { width: 50 / 1.5, height: 50 / 1.5, id: 4, image: 'images/items/pokeball_orange.png' },
 ];
 
 // 게임 요소들
