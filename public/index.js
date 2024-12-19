@@ -30,16 +30,16 @@ const GROUND_SPEED = 0.5;
 // 선인장
 const CACTI_CONFIG = [
   { width: 65 / 1.5, height: 100 / 1.5, image: 'images/hoyoung_1.png' },
-  { width: 98 / 1.5, height: 100 / 1.5, image: 'images/cactus_2.png' },
-  { width: 68 / 1.5, height: 70 / 1.5, image: 'images/cactus_3.png' },
+  { width: 98 / 1.5, height: 100 / 1.5, image: 'images/younghun_1.png' },
+  { width: 68 / 1.5, height: 70 / 1.5, image: 'images/manager_1.png' },
 ];
 
 // 아이템
 const ITEM_CONFIG = [
-  { width: 50 / 1.5, height: 50 / 1.5, id: 1, image: 'images/items/pokeball_red.png' },
-  { width: 50 / 1.5, height: 50 / 1.5, id: 2, image: 'images/items/pokeball_yellow.png' },
-  { width: 50 / 1.5, height: 50 / 1.5, id: 3, image: 'images/items/pokeball_purple.png' },
-  { width: 50 / 1.5, height: 50 / 1.5, id: 4, image: 'images/items/pokeball_cyan.png' },
+  { width: 50 / 1.5, height: 50 / 1.5, id: 1, image: 'images/items/1-1.png' },
+  { width: 50 / 1.5, height: 50 / 1.5, id: 2, image: 'images/items/1-2.png' },
+  { width: 50 / 1.5, height: 50 / 1.5, id: 3, image: 'images/items/1-3.png' },
+  { width: 50 / 1.5, height: 50 / 1.5, id: 4, image: 'images/items/1-4.png' },
   { width: 50 / 1.5, height: 50 / 1.5, id: 3, image: 'images/items/pokeball_pink.png' },
   { width: 50 / 1.5, height: 50 / 1.5, id: 4, image: 'images/items/pokeball_orange.png' },
 ];
