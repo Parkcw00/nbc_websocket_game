@@ -20,24 +20,28 @@ class Score {
   }
 
   update(deltaTime) {
-    this.score += deltaTime * 0.001;
-
     const assets = getGameAssets();
     if (!assets) return; // 에셋이 로드되지 않았으면 리턴
 
+    // 현재 스테이지의 scorePerSecond 값을 찾아서 적용
+    const currentStageData = assets.stages.data.find((stage) => stage.id === this.currentStage);
+
+    if (currentStageData) {
+      // deltaTime은 밀리초 단위이므로 1000으로 나누어 초 단위로 변환
+      this.score += (currentStageData.scorePerSecond * deltaTime) / 1000;
+    }
+
+    // 다음 스테이지 체크
     const stages = assets.stages.data;
     const currentStageIndex = stages.findIndex((stage) => stage.id === this.currentStage);
 
-    // 다음 스테이지가 존재하는지 확인
     if (currentStageIndex < stages.length - 1) {
       const nextStage = stages[currentStageIndex + 1];
 
-      // 현재 점수가 다음 스테이지의 요구 점수를 넘었는지 확인
       if (Math.floor(this.score) >= nextStage.score) {
         const currentStage = this.currentStage;
         this.currentStage = nextStage.id;
 
-        // 서버에 스테이지 변경 이벤트 전송
         sendEvent(11, {
           currentStage: currentStage,
           targetStage: this.currentStage,
