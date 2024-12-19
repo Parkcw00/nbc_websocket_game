@@ -79,4 +79,4 @@
 
 ### 4. 어려웠던 점과 프로젝트 소감
 
-[트러블슈팅](https://parkcw0325.tistory.com/37)
+[트러블슈팅](https://parkcw0325.tistory.com/51)
