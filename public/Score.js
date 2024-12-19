@@ -52,7 +52,11 @@ class Score {
 
   getItem(itemId) {
     // 아이템 획득시 점수 변화
-    this.score += 20;
+    const assets = getGameAssets();
+    const itemData = assets.items.data.find((item) => item.id === itemId);
+
+    // 아이템의 점수만큼 증가
+    this.score += itemData.score;
   }
 
   reset() {
