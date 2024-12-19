@@ -4,6 +4,7 @@ class Score {
   score = 0;
   HIGH_SCORE_KEY = 'highScore';
   currentStage = 1000; // 초기 스테이지
+  hasInitialized = false; // 초기화 여부를 추적하는 플래그 추가
 
   constructor(ctx, scaleRatio) {
     this.ctx = ctx;
@@ -51,7 +52,21 @@ class Score {
   }
 
   reset() {
+    // 이미 초기화된 상태라면 리턴
+    if (this.hasInitialized && this.score === 0) {
+      return;
+    }
+
     this.score = 0;
+    this.currentStage = 1000; // 스테이지도 초기화
+    this.hasInitialized = true;
+
+    // 게임 시작 이벤트를 서버로 전송 (handlerId: 2)
+    sendEvent(2, {
+      timestamp: Date.now(),
+    });
+
+    console.log('Game reset called'); // 디버깅을 위한 로그
   }
 
   setHighScore() {

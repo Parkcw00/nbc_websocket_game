@@ -4,7 +4,6 @@ import CactiController from './CactiController.js';
 import Score from './Score.js';
 import ItemController from './ItemController.js';
 import '/Socket.js';
-import { sendEvent } from '/Socket.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
@@ -167,7 +166,6 @@ function reset() {
   cactiController.reset();
   score.reset();
   gameSpeed = GAME_SPEED_START;
-  sendEvent(2, { timestamp: Date.now() });
 }
 
 function setupGameReset() {
@@ -175,7 +173,15 @@ function setupGameReset() {
     hasAddedEventListenersForRestart = true;
 
     setTimeout(() => {
-      window.addEventListener('keyup', reset, { once: true });
+      window.addEventListener(
+        'keyup',
+        (e) => {
+          if (e.code === 'Space') {
+            reset();
+          }
+        },
+        { once: true },
+      );
     }, 1000);
   }
 }
@@ -245,4 +251,16 @@ function gameLoop(currentTime) {
 // 게임 프레임을 다시 그리는 메서드
 requestAnimationFrame(gameLoop);
 
-window.addEventListener('keyup', reset, { once: true });
+// 초기 게임 시작을 위한 이벤트 리스너
+if (waitingToStart) {
+  window.addEventListener(
+    'keyup',
+    (e) => {
+      if (e.code === 'Space') {
+        // 스페이스바 입력일 때만 리셋
+        reset();
+      }
+    },
+    { once: true },
+  );
+}
